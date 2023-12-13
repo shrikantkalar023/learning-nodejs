@@ -1,5 +1,3 @@
-const log = require("./logger");
-console.log(log); //is a fn
+const path = require("node:path");
 
-log("message");
-// require("./logger")("sup"); // can do chaining
+console.log(path.parse(__filename));
