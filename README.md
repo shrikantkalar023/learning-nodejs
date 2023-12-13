@@ -18,4 +18,4 @@ This is the repo i created and updated while learning Node. **-Shrikant Kalar**
 
 7. **Modules:** Every file in node is a module. **require()** is used to import modules. **module.exports** is used to export modules. By default es6 modules are not supported in node.
 
-8.
+8. Node wraps every file in a **Module Wrapper Function** which is an **IIFE** (Immediately Invoked Function Expression) to create a scope for the file.
