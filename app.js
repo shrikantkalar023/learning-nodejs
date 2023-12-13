@@ -1,6 +1,5 @@
-// console.log(log); //is a fn
+const log = require("./logger");
+console.log(log); //is a fn
 
-log = require("./logger");
-log.logger("message");
-
-// require("./logger").logger("chain"); // can do chaining
+log("message");
+// require("./logger")("sup"); // can do chaining

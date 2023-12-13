@@ -5,4 +5,5 @@ const log = (message) => {
   console.log(message);
 };
 
-module.exports.logger = log;
+module.exports = log;
+// can export an obj or a fn
