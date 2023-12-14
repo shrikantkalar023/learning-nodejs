@@ -23,3 +23,5 @@ This is the repo i created and updated while learning Node. **-Shrikant Kalar**
 9. File System module has **Sync** & **Async** methods. Always use **Async** methods as they don't block the thread.
 
 10. **Events** is a signal that something has happened in our app. **EventEmitter** is a class that emits events. **on()** is used to listen to events. **emit()** is used to emit events.
+
+11. To raise an event we need to create a class that **extends** EventEmitter class and then emit the event.
