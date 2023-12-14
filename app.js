@@ -1,8 +1,18 @@
-const Logger = require("./logger");
-const logger = new Logger();
+const http = require("node:http");
 
-logger.on("logging", (eventArg) => {
-  console.log("Logging Listener called", eventArg);
+const server = http.createServer((req, res) => {
+  if (req.url === "/") {
+    res.write("Hello World");
+    res.end();
+  }
+
+  if (req.url === "/api/courses") {
+    res.write(JSON.stringify([1, 2, 3]));
+    res.write(JSON.stringify({ a: 1, b: 2 }));
+    res.end();
+  }
 });
 
-logger.log("message");
+server.listen(3000); //this is an event emitter
+
+console.log("Listening on port 3000...");
