@@ -25,3 +25,9 @@ This is the repo i created and updated while learning Node. **-Shrikant Kalar**
 10. **Events** is a signal that something has happened in our app. **EventEmitter** is a class that emits events. **on()** is used to listen to events. **emit()** is used to emit events.
 
 11. To raise an event we need to create a class that **extends** EventEmitter class and then emit the event.
+
+12. Semantic versioning(SemVer): **MAJOR.MINOR.PATCH** e.g. 3.2.1
+    ^ - same as 3.x.x (same major version)
+    ~ - same as 3.2.x (same major & minor version)
+
+13. **REST**: Representational State Transfer. Convention for building http services. CRUD operations.
