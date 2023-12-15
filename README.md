@@ -35,3 +35,5 @@ This is the repo i created and updated while learning Node. **-Shrikant Kalar**
 14. **Route Parameters**: required values for backend. e.g. /api/course/1
 
 15. **Query String** Params: optional data for backend. e.g. /api/courses/2023?sortBy=name
+
+16. **404** - Not Found status code. Send when a requested resource doesn't exist on server.
