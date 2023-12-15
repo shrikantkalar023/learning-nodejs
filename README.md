@@ -39,3 +39,5 @@ This is the repo i created and updated while learning Node. **-Shrikant Kalar**
 16. **404** - Not Found status code. Send when a requested resource doesn't exist on server.
 
 17. When we post an object to server, we should return that object in the body of the response (with id).
+
+18. Input Validation: **Always** Validate input on server side as well as on server side.
