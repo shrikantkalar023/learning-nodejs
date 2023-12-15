@@ -31,3 +31,7 @@ This is the repo i created and updated while learning Node. **-Shrikant Kalar**
     ~ - same as 3.2.x (same major & minor version)
 
 13. **REST**: Representational State Transfer. Convention for building http services. CRUD operations.
+
+14. **Route Parameters**: required values for backend. e.g. /api/course/1
+
+15. **Query String** Params: optional data for backend. e.g. /api/courses/2023?sortBy=name
