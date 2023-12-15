@@ -37,3 +37,5 @@ This is the repo i created and updated while learning Node. **-Shrikant Kalar**
 15. **Query String** Params: optional data for backend. e.g. /api/courses/2023?sortBy=name
 
 16. **404** - Not Found status code. Send when a requested resource doesn't exist on server.
+
+17. When we post an object to server, we should return that object in the body of the response (with id).
