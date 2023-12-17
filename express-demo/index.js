@@ -10,6 +10,15 @@ const courses = [
   { id: 3, name: "course3" },
 ];
 
+const validateCourse = (course) => {
+  const schema = Joi.string().min(4).messages({
+    "string.min": `"name" should have a minimum length of 4`,
+    "string.empty": `"name" is a required field`,
+  });
+
+  return schema.validate(course);
+};
+
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
@@ -23,31 +32,49 @@ app.get("/api/courses/:id", (req, res) => {
     (course) => course.id === parseInt(req.params.id)
   );
 
-  if (!course)
+  if (!course) {
     res.status(404).send("The course with the given ID was not found.");
+    return;
+  }
 
   res.send(course);
 });
 
 app.post("/api/courses", (req, res) => {
-  const schema = Joi.string().min(4).messages({
-    "string.min": `"name" should have a minimum length of 4`,
-    "string.empty": `"name" is a required field`,
-  });
+  const { error, value } = validateCourse(req.body.name);
 
-  const result = schema.validate(req.body.name);
-
-  if (result.error) {
-    res.status(400).send(result.error.details[0].message);
+  if (error) {
+    res.status(400).send(error.details[0].message);
     return;
   }
 
   const course = {
     id: courses.length + 1,
-    name: result.value,
+    name: value,
   };
 
   courses.push(course);
+  res.status(201).send(course);
+});
+
+app.put("/api/courses/:id", (req, res) => {
+  const course = courses.find(
+    (course) => course.id === parseInt(req.params.id)
+  );
+
+  if (!course) {
+    res.status(404).send("The course with the given ID was not found.");
+    return;
+  }
+
+  const { error, value } = validateCourse(req.body.name);
+
+  if (error) {
+    res.status(400).send(error.details[0].message);
+    return;
+  }
+
+  course.name = value;
   res.send(course);
 });
 
