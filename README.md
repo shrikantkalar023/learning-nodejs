@@ -41,3 +41,5 @@ This is the repo i created and updated while learning Node. **-Shrikant Kalar**
 17. When we **POST**, **PUT**, **DELETE** an object on server, we should return that object in the body of the response (with id) and perform input validation for post & put.
 
 18. Input Validation: **Always** Validate input on server side as well as on client side. For js,ts use **joi**, **zod**.
+
+19. **Middleware**: A fn that takes a _req_ object and either returns a _res_ to the client or passes control to another middleware fn. e.g. express.json()
