@@ -1,3 +1,5 @@
+const startupDebugger = require("debug")("app:startup");
+const dbDebugger = require("debug")("app:db");
 const config = require("config");
 const express = require("express");
 const Joi = require("joi");
@@ -13,8 +15,10 @@ app.use(express.static("public"));
 app.use(helmet());
 if (app.get("env") === "development") {
   app.use(morgan("tiny"));
-  console.log("Morgan enabled...");
+  startupDebugger("Morgan enabled...");
 }
+
+dbDebugger("Connected to the database...");
 
 // Configuration
 console.log("Application Name: " + config.get("name"));

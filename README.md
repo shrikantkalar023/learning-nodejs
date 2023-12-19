@@ -45,3 +45,5 @@ This is the repo i created and updated while learning Node. **-Shrikant Kalar**
 19. **Middleware**: A fn that takes a _req_ object and either returns a _res_ to the client or passes control to another middleware fn. e.g. express.json()
 
 20. **Configuration**: Handle configuration settings for diff envs using _config_ package.
+
+21. **Debugging**: Use _debug_ package. _Shorter_, more _Organized_ & more _Controllable_ via name spaces.
