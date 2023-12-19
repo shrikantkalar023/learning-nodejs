@@ -43,3 +43,5 @@ This is the repo i created and updated while learning Node. **-Shrikant Kalar**
 18. Input Validation: **Always** Validate input on server side as well as on client side. For js,ts use **joi**, **zod**.
 
 19. **Middleware**: A fn that takes a _req_ object and either returns a _res_ to the client or passes control to another middleware fn. e.g. express.json()
+
+20. **Configuration**: Handle configuration settings for diff envs using _config_ package.
