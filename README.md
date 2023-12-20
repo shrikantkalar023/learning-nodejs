@@ -49,3 +49,7 @@ This is the repo i created and updated while learning Node. **-Shrikant Kalar**
 21. **Debugging**: Use _debug_ package. _Shorter_, more _Organized_ & more _Controllable_ via name spaces.
 
 22. **Templating Engines**: Used to send html along with data. _pug_, _mustache_, _ejs_ pkgs.
+
+23. For every api endpoint we should have a separate file/module.
+
+24. **Asynchronous** is differnt from **Concurrent** or **Multi-threaded**. We only have a single thread in node.
