@@ -47,3 +47,5 @@ This is the repo i created and updated while learning Node. **-Shrikant Kalar**
 20. **Configuration**: Handle configuration settings for diff envs using _config_ package.
 
 21. **Debugging**: Use _debug_ package. _Shorter_, more _Organized_ & more _Controllable_ via name spaces.
+
+22. **Templating Engines**: Used to send html along with data. _pug_, _mustache_, _ejs_ pkgs.
