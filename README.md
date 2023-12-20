@@ -55,3 +55,7 @@ This is the repo i created and updated while learning Node. **-Shrikant Kalar**
 24. **Asynchronous** is differnt from **Concurrent** or **Multi-threaded**. We only have a single thread in node.
 
 25. **Async Patterns** - Callbacks, Promises, Async/Await
+
+26. **Promise** - holds the eventual result of an async operation. pending, resolved/fulfilled or rejected/error states.
+
+27. Change Async fn that takes a **callback**, to return a **Promise**.
