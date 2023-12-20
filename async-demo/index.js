@@ -12,9 +12,24 @@ const getRepos = (userName, callback) => {
   }, 2000);
 };
 
+// Asyncronous
 console.log("Before");
 getUser(1, (user) => {
-  console.log(user);
-  getRepos(user.name, (repos) => console.log(repos));
+  getRepos(user.name, (repos) => {
+    console.log(repos);
+    getCommits(repos[0], (commits) => {
+      console.log(commits);
+      // Callback Hell
+      // Nested Callbacks
+      // Christmas tree problem
+    });
+  });
 });
+console.log("After");
+
+// Syncronous
+console.log("Before");
+const user = getUser(1);
+const repos = getRepos(user.name);
+const commits = getCommits(repos[0]);
 console.log("After");
