@@ -59,3 +59,5 @@ This is the repo i created and updated while learning Node. **-Shrikant Kalar**
 26. **Promise** - holds the eventual result of an async operation. pending, resolved/fulfilled or rejected/error states.
 
 27. Change Async fn that takes a **callback**, to return a **Promise**.
+
+28. When **Rejecting** a promise, always pass an **Error** object.
