@@ -1,6 +1,18 @@
-const resolvedPromise = Promise.resolve({ id: 1 });
-resolvedPromise.then((result) => console.log(result));
+const p1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    console.log("Async operation 1...");
+    resolve(1);
+    // reject(new Error("Error 1"));
+  }, 2000);
+});
 
-// Error obj includes error call stack
-const rejectedPromise = Promise.reject(new Error("Rejection Reason"));
-rejectedPromise.catch((err) => console.log(err));
+const p2 = new Promise((resolve) => {
+  setTimeout(() => {
+    console.log("Async operation 2...");
+    resolve(2);
+  }, 1000);
+});
+
+Promise.all([p1, p2])
+  .then((result) => console.log(result))
+  .catch((err) => console.log(err.message));

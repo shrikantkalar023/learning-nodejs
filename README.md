@@ -61,3 +61,7 @@ This is the repo i created and updated while learning Node. **-Shrikant Kalar**
 27. Change Async fn that takes a **callback**, to return a **Promise**.
 
 28. When **Rejecting** a promise, always pass an **Error** object.
+
+29. **Promise.all()** - run multiple promises in parallel. not waiting for one to finish before starting another.
+
+30. **Promise.race()** - when we want to do something as soon as one of the promises in the array resolves.
