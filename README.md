@@ -65,3 +65,5 @@ This is the repo i created and updated while learning Node. **-Shrikant Kalar**
 29. **Promise.all()** - run multiple promises in parallel. not waiting for one to finish before starting another.
 
 30. **Promise.race()** - when we want to do something as soon as one of the promises in the array resolves.
+
+31. **Async/Await** - syntactic sugar over promises. **Await** can only be used inside an **Async** fn. Try, Catch block.

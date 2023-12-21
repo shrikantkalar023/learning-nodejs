@@ -2,8 +2,8 @@ const getUser = (id) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       console.log("Reading a user from a database...");
-      resolve({ id: id, name: "shrikant" });
-      // reject(new Error("Failed to get user from database"));
+      // resolve({ id: id, name: "shrikant" });
+      reject(new Error("Failed to get user from database"));
     }, 2000);
   });
 };
@@ -12,8 +12,8 @@ const getRepos = (userName) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       console.log(`Reading repositories owned by ${userName} from github...`);
-      // resolve(["repo1", "repo2", "repo3"]);
-      reject(new Error("Failed to get repos from github"));
+      resolve(["repo1", "repo2", "repo3"]);
+      // reject(new Error("Failed to get repos from github"));
     }, 2000);
   });
 };
@@ -29,6 +29,8 @@ const getCommits = (repo) => {
 };
 
 console.log("Before");
+
+// Callback Approach
 // getUser(1, (user) => {
 //   getRepos(user.name, (repos) => {
 //     console.log(repos);
@@ -37,9 +39,25 @@ console.log("Before");
 //     });
 //   });
 // });
-getUser(1)
-  .then((user) => getRepos(user.name))
-  .then((repos) => getCommits(repos[0]))
-  .then((commits) => console.log(commits))
-  .catch((err) => console.log(err.message));
+
+// Promise Approach
+// getUser(1)
+//   .then((user) => getRepos(user.name))
+//   .then((repos) => getCommits(repos[0]))
+//   .then((commits) => console.log(commits))
+//   .catch((err) => console.log(err.message));
+
+// Async and Await Approach
+const displayCommits = async () => {
+  try {
+    const user = await getUser(1);
+    const repos = await getRepos(user.name);
+    const commits = await getCommits(repos[0]);
+    console.log(commits);
+  } catch (err) {
+    console.log(err.message);
+  }
+};
+displayCommits();
+
 console.log("After");
