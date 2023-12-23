@@ -67,3 +67,7 @@ This is the repo i created and updated while learning Node. **-Shrikant Kalar**
 30. **Promise.race()** - when we want to do something as soon as one of the promises in the array resolves.
 
 31. **Async/Await** - syntactic sugar over promises. **Await** can only be used inside an **Async** fn. Try, Catch block.
+
+32. **Collection** in mongodb is similar to **Table**, **Document** is similar to **Row** in relational db.
+
+33. **Mongoose** - ODM (Object Document Mapper) for mongodb. **Schema** defines the shape of documents in a collection.
