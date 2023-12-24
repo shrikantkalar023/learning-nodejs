@@ -28,20 +28,14 @@ const createCourse = async () => {
 
 // createCourse();
 
-// eq (equal)
-// ne (not equal)
-// gt (greater than)
-// gte (greater than or equal to)
-// lt (less than)
-// lte (less than or equal to)
-// in
-// nin (not in)
+// Logical Operators
+// or, and , nor, not
 
 const getCourses = async () => {
   const courses = await Course
     // .find({ isPublished: true, author: "Mosh" })
-    // .fing({ price: { $gte: 10, $lte: 20 } })
-    .fing({ price: { $in: [5, 10, 15] } })
+    .find()
+    .or([{ tags: "react" }, { tags: "frontend" }])
     .select({ name: 1, tags: 1 })
     .sort({ name: -1 })
     .limit(10);
