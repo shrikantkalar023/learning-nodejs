@@ -71,3 +71,5 @@ This is the repo i created and updated while learning Node. **-Shrikant Kalar**
 32. **Collection** in mongodb is similar to **Table**, **Document** is similar to **Row** in relational db.
 
 33. **Mongoose** - ODM (Object Document Mapper) for mongodb. **Schema** defines the shape of documents in a collection. **Model** is a class made from Schema, used to create documents.
+
+34. **Comparison Operators** - eq, ne, gt, gte, lt, lte, in, nin
