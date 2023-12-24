@@ -75,3 +75,5 @@ This is the repo i created and updated while learning Node. **-Shrikant Kalar**
 34. **Comparison Operators** - eq, ne, gt, gte, lt, lte, in, nin
 
 35. **Logical Operators** - or, and, nor, not
+
+36. **REGEX** - /pattern/flags

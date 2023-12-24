@@ -28,14 +28,19 @@ const createCourse = async () => {
 
 // createCourse();
 
-// Logical Operators
-// or, and , nor, not
-
 const getCourses = async () => {
   const courses = await Course
     // .find({ isPublished: true, author: "Mosh" })
-    .find()
-    .or([{ tags: "react" }, { tags: "frontend" }])
+
+    // starts with Shri
+    .find({ author: /^Shri/ })
+
+    // ends with Kalar
+    .find({ author: /Kalar$/i })
+
+    // contains Shri
+    .find({ author: /.*Shri.*/i })
+
     .select({ name: 1, tags: 1 })
     .sort({ name: -1 })
     .limit(10);
