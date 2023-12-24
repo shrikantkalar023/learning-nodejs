@@ -26,4 +26,14 @@ const createCourse = async () => {
   console.log(result);
 };
 
-createCourse();
+// createCourse();
+
+const getCourses = async () => {
+  const courses = await Course.find({ isPublished: true, author: "Mosh" })
+    .select({ name: 1, tags: 1 })
+    .sort({ name: -1 })
+    .limit(10);
+  console.log(courses);
+};
+
+getCourses();
