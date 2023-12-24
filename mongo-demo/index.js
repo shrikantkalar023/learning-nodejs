@@ -29,21 +29,10 @@ const createCourse = async () => {
 // createCourse();
 
 const getCourses = async () => {
-  const courses = await Course
-    // .find({ isPublished: true, author: "Mosh" })
-
-    // starts with Shri
-    .find({ author: /^Shri/ })
-
-    // ends with Kalar
-    .find({ author: /Kalar$/i })
-
-    // contains Shri
-    .find({ author: /.*Shri.*/i })
-
-    .select({ name: 1, tags: 1 })
+  const courses = await Course.find({ isPublished: true, author: "Mosh" })
     .sort({ name: -1 })
-    .limit(10);
+    .limit(10)
+    .countDocuments();
   console.log(courses);
 };
 
