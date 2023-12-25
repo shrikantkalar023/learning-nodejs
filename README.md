@@ -77,3 +77,5 @@ This is the repo i created and updated while learning Node. **-Shrikant Kalar**
 35. **Logical Operators** - or, and, nor, not
 
 36. **REGEX** - /pattern/flags
+
+37. **Updating** - Query First(findbyId), Update First(findbyIdAndUpdate,updateOne,updateMany)

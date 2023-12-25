@@ -43,24 +43,21 @@ const getCourses = async () => {
 // getCourses();
 
 const updateCourse = async (id) => {
-  // Approach: Query first
-  // findById()
-  // Modify its properties
-  // save()
-
-  const course = await Course.findByIdAndUpdate(id, {
-    $set: {
-      isPublished: false,
-      author: "Shrik",
-    },
-  });
-
-  const result = await course.save();
-  console.log(result);
-
   // Approach: Update first
   // Update directly
   // Optionally: get the updated document
+
+  const result = await Course.updateOne(
+    { _id: id },
+    {
+      $set: {
+        isPublished: true,
+        author: "Shrikant",
+      },
+    }
+  );
+
+  console.log(result);
 };
 
 updateCourse("6586cbfa112d60640a10614c");
