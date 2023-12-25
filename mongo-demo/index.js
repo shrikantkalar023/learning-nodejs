@@ -40,4 +40,30 @@ const getCourses = async () => {
   console.log(courses);
 };
 
-getCourses();
+// getCourses();
+
+const updateCourse = async (id) => {
+  // Approach: Query first
+  // findById()
+  // Modify its properties
+  // save()
+
+  const course = await Course.findById(id);
+  if (!course) return;
+
+  // course.isPublished = true;
+
+  course.set({
+    isPublished: true,
+    author: "Shri",
+  });
+
+  const result = await course.save();
+  console.log(result);
+
+  // Approach: Update first
+  // Update directly
+  // Optionally: get the updated document
+};
+
+updateCourse("6586cbfa112d60640a10614c");
