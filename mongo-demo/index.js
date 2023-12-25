@@ -48,14 +48,11 @@ const updateCourse = async (id) => {
   // Modify its properties
   // save()
 
-  const course = await Course.findById(id);
-  if (!course) return;
-
-  // course.isPublished = true;
-
-  course.set({
-    isPublished: true,
-    author: "Shri",
+  const course = await Course.findByIdAndUpdate(id, {
+    $set: {
+      isPublished: false,
+      author: "Shrik",
+    },
   });
 
   const result = await course.save();
