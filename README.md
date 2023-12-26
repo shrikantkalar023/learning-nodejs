@@ -81,3 +81,7 @@ This is the repo i created and updated while learning Node. **-Shrikant Kalar**
 37. **Updating** - Query First(findbyId), Update First(findbyIdAndUpdate,updateOne,updateMany)
 
 38. **Deleting** - deleteOne, deleteMany, findByIdAndDelete
+
+39. DB level **Validation** is not possible in mongoDB. Use **Mongoose** for validation.
+
+40. **Built-in Validators** - required, minlength, maxlength, match, enum,min,max.
