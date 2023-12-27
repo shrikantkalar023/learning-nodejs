@@ -17,6 +17,9 @@ const courseSchema = new mongoose.Schema({
     type: String,
     required: true,
     enum: ["web", "mobile", "network"],
+    lowercase: true,
+    // uppercase: true,
+    // trim: true,
   },
   author: String,
   tags: {
@@ -44,17 +47,19 @@ const courseSchema = new mongoose.Schema({
     },
     min: 5,
     max: 200,
+    get: (v) => Math.round(v),
+    set: (v) => Math.round(v),
   },
 });
 
 const Course = mongoose.model("Course", courseSchema);
 const course = new Course({
   name: "React Course",
-  category: "-",
+  category: "Web",
   author: "Mosh",
-  tags: null,
+  tags: ["react", "frontend"],
   isPublished: true,
-  price: 40,
+  price: 40.8,
 });
 
 const createCourse = async () => {
@@ -68,21 +73,21 @@ const createCourse = async () => {
   }
 };
 
-createCourse();
+// createCourse();
 
 const getCourses = async () => {
   const pageNumber = 2;
   const pageSize = 10;
 
-  const courses = await Course.find({ isPublished: true, author: "Mosh" })
-    .skip((pageNumber - 1) * pageSize)
-    .limit(pageSize)
+  const courses = await Course.find({ price: { $gt: 40 } })
+    // .skip((pageNumber - 1) * pageSize)
+    // .limit(pageSize)
     .sort({ name: -1 })
-    .select({ name: 1, tags: 1 });
-  console.log(courses);
+    .select({ name: 1, tags: 1, price: 1 });
+  console.log(courses[0].price);
 };
 
-// getCourses();
+getCourses();
 
 const updateCourse = async (id) => {
   const result = await Course.updateOne(
