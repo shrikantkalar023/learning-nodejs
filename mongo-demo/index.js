@@ -5,9 +5,6 @@ mongoose
   .then(() => console.log("Connected to MongoDB..."))
   .catch((err) => console.error("Could not connect to MongoDB...", err));
 
-/**
- * @type {mongoose.SchemaDefinitionProperty}
- */
 const courseSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -25,8 +22,14 @@ const courseSchema = new mongoose.Schema({
   tags: {
     type: Array,
     validate: {
-      validator: (v) => {
-        return v && v.length > 0;
+      validator: async (v) => {
+        // Do some async work
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            const result = v && v.length > 0;
+            resolve(result);
+          }, 2000);
+        });
       },
       message: "A course should have at least one tag.",
     },
