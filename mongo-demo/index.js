@@ -5,6 +5,9 @@ mongoose
   .then(() => console.log("Connected to MongoDB..."))
   .catch((err) => console.error("Could not connect to MongoDB...", err));
 
+/**
+ * @type {mongoose.SchemaDefinitionProperty}
+ */
 const courseSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -19,7 +22,15 @@ const courseSchema = new mongoose.Schema({
     enum: ["web", "mobile", "network"],
   },
   author: String,
-  tags: [String],
+  tags: {
+    type: Array,
+    validate: {
+      validator: (v) => {
+        return v && v.length > 0;
+      },
+      message: "A course should have at least one tag.",
+    },
+  },
   date: { type: Date, default: Date.now },
   isPublished: Boolean,
   price: {
@@ -38,7 +49,7 @@ const course = new Course({
   name: "React Course",
   category: "mobile",
   author: "Mosh",
-  tags: ["react", "frontend"],
+  tags: null,
   isPublished: true,
   price: 15,
 });
