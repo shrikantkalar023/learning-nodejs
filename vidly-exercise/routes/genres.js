@@ -4,12 +4,6 @@ const mongoose = require("mongoose");
 
 const router = express.Router();
 
-const genres = [
-  { id: 1, name: "genre1" },
-  { id: 2, name: "genre2" },
-  { id: 3, name: "genre3" },
-];
-
 const Genre = mongoose.model(
   "Genre",
   new mongoose.Schema({
@@ -32,17 +26,23 @@ const validateGenre = (genre) => {
   return schema.validate(genre);
 };
 
-// FIXME: instead of using try/catch blocks, throw errors if genre is not found
+const validateObjectId = (req, res, next) => {
+  if (!mongoose.isValidObjectId(req.params.id)) {
+    return res.status(400).send("Invalid ID.");
+  }
+  next();
+};
+
 router.get("/", async (req, res) => {
   res.send(await Genre.find().sort("name"));
 });
 
-router.get("/:id", async (req, res) => {
-  try {
-    res.send(await Genre.findById(req.params.id));
-  } catch (ex) {
+router.get("/:id", validateObjectId, async (req, res) => {
+  const genre = await Genre.findById(req.params.id);
+
+  if (!genre) {
     return res.status(404).send("The genre with the given ID was not found.");
-  }
+  } else res.send(genre);
 });
 
 router.post("/", async (req, res) => {
@@ -60,32 +60,29 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.put("/:id", async (req, res) => {
+router.put("/:id", validateObjectId, async (req, res) => {
   const { error, value } = validateGenre(req.body.name);
-
   if (error) return res.status(400).send(error.details[0].message);
 
-  try {
-    res.send(
-      await Genre.findByIdAndUpdate(
-        req.params.id,
-        {
-          name: value,
-        },
-        { new: true } // return the updated object
-      )
-    );
-  } catch (ex) {
-    res.status(500).send(ex.message);
-  }
+  const genre = await Genre.findByIdAndUpdate(
+    req.params.id,
+    {
+      name: value,
+    },
+    { new: true } // return the updated object
+  );
+
+  if (!genre) {
+    return res.status(404).send("The genre with the given ID was not found.");
+  } else res.send(genre);
 });
 
-router.delete("/:id", async (req, res) => {
-  try {
-    res.send(await Genre.findByIdAndDelete(req.params.id));
-  } catch (ex) {
-    res.status(500).send(ex.message);
-  }
+router.delete("/:id", validateObjectId, async (req, res) => {
+  const genre = await Genre.findByIdAndDelete(req.params.id);
+
+  if (!genre) {
+    return res.status(404).send("The genre with the given ID was not found.");
+  } else res.send(genre);
 });
 
 module.exports = router;
