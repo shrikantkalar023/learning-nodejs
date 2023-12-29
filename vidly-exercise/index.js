@@ -6,6 +6,7 @@ const app = express();
 app.use(express.json());
 
 app.use("/api/genres", require("./routes/genres"));
+app.use("/api/customers", require("./routes/customers"));
 app.use("/", require("./routes/home"));
 
 // Start server
