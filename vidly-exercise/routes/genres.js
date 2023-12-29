@@ -1,37 +1,7 @@
 const express = require("express");
-const Joi = require("joi");
-const mongoose = require("mongoose");
+const { Genre, validateGenre, validateObjectId } = require("../models/genre");
 
 const router = express.Router();
-
-const Genre = mongoose.model(
-  "Genre",
-  new mongoose.Schema({
-    name: {
-      type: String,
-      required: true,
-      minlength: 4,
-      maxlength: 50,
-    },
-  })
-);
-
-// express validation
-const validateGenre = (genre) => {
-  const schema = Joi.string().min(4).messages({
-    "string.min": `"name" should have a minimum length of 4`,
-    "string.empty": `"name" is a required field`,
-  });
-
-  return schema.validate(genre);
-};
-
-const validateObjectId = (req, res, next) => {
-  if (!mongoose.isValidObjectId(req.params.id)) {
-    return res.status(400).send("Invalid ID.");
-  }
-  next();
-};
 
 router.get("/", async (req, res) => {
   res.send(await Genre.find().sort("name"));
