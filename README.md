@@ -85,3 +85,11 @@ This is the repo i created and updated while learning Node. **-Shrikant Kalar**
 39. DB level **Validation** is not possible in mongoDB. Use **Mongoose** for validation.
 
 40. **Built-in Validators** - required, minlength, maxlength, match, enum,min,max.
+
+41. No real **Relationships** like RDBs in mongoDB.
+
+42. **Relationships in MongoDB** - Referencing (Normalization), Embedded Documents (Denormalization), Hybrid (Snapshot of data at a point in time).
+
+43. **Referencing** - CONSISTENCY, but slower. **Embedding** - PERFORMANCE, but inconsistent.
+
+44. We need to _think_ about the **Queries** we will be _running_ **ahead of time** and _design_ DB based on those queries.
