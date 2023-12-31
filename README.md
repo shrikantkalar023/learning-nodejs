@@ -92,6 +92,8 @@ This is the repo i created and updated while learning Node. **-Shrikant Kalar**
 
 43. **Referencing** - CONSISTENCY, but slower. **Embedding** - PERFORMANCE, but inconsistent.
 
-44. We need to _think_ about the **Queries** we will be _running_ **ahead of time** and _design_ DB based on those queries.
+44. **HYBRID** - Embed needed properties of a document & also add ref to that document.
 
-45. **Embedded Documents** - most features available in Normal Documents are also available in Embedded Documents. BUT they can't be saved on their own.
+45. We need to _think_ about the **Queries** we will be _running_ **ahead of time** and _design_ DB based on those queries.
+
+46. **Embedded Documents** - most features available in Normal Documents are also available in Embedded Documents. BUT they can't be saved on their own.
