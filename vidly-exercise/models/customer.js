@@ -1,5 +1,6 @@
 const Joi = require("joi");
 const mongoose = require("mongoose");
+const { generateErrorMessages } = require("../utils/generateErrorMessages");
 
 const Customer = mongoose.model(
   "Customer",
@@ -20,29 +21,22 @@ const Customer = mongoose.model(
   })
 );
 
-const generateErrorMessages = (fieldName) => ({
-  "string.min": `"${fieldName}" should have a minimum length of 4`,
-  "string.empty": `"${fieldName}" is a required field`,
-});
-
 // express validation
 const validateCustomer = (customer) => {
   const schema = Joi.object({
-    name: Joi.string().min(4).max(50).messages(generateErrorMessages("name")),
-    phone: Joi.string().min(4).max(50).messages(generateErrorMessages("phone")),
+    name: Joi.string()
+      .min(4)
+      .max(50)
+      .messages(generateErrorMessages("name", 4, 50)),
+    phone: Joi.string()
+      .min(4)
+      .max(50)
+      .messages(generateErrorMessages("phone", 4, 50)),
     // isGold: Joi.boolean(),
   });
 
   return schema.validate(customer);
 };
 
-const validateObjectId = (req, res, next) => {
-  if (!mongoose.isValidObjectId(req.params.id)) {
-    return res.status(400).send("Invalid ID.");
-  }
-  next();
-};
-
 exports.Customer = Customer;
 exports.validateCustomer = validateCustomer;
-exports.validateObjectId = validateObjectId;
