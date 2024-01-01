@@ -97,3 +97,5 @@ This is the repo i created and updated while learning Node. **-Shrikant Kalar**
 45. We need to _think_ about the **Queries** we will be _running_ **ahead of time** and _design_ DB based on those queries.
 
 46. **Embedded Documents** - most features available in Normal Documents are also available in Embedded Documents. BUT they can't be saved on their own.
+
+47. **Transactions** - Ensures all operations succeed or none of them are applied to DB. They all succeed or rollback. They are **Atomic**.

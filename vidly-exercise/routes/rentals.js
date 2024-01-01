@@ -30,29 +30,43 @@ router.post("/", async (req, res) => {
   if (movie.numberInStock === 0)
     return res.status(400).send("Movie not in stock.");
 
+  // TODO: test this code for ATOMICITY
+  const session = await Rental.startSession();
+  if (!session)
+    return res
+      .status(500)
+      .send("Internal Server Error: Unable to start a database session.");
+
+  session.startTransaction();
+
   try {
-    res.status(201).send(
-      await new Rental({
-        customer: {
-          _id: customer._id,
-          name: customer.name,
-          phone: customer.phone,
-        },
-        movie: {
-          _id: movie._id,
-          title: movie.title,
-          dailyRentalRate: movie.dailyRentalRate,
-        },
-      }).save()
-    );
+    const rental = new Rental({
+      customer: {
+        _id: customer._id,
+        name: customer.name,
+        phone: customer.phone,
+      },
+      movie: {
+        _id: movie._id,
+        title: movie.title,
+        dailyRentalRate: movie.dailyRentalRate,
+      },
+    });
+
+    await rental.save({ session });
 
     movie.numberInStock--;
-    movie.save();
+    await movie.save({ session });
+
+    await session.commitTransaction();
+
+    res.status(201).send(rental);
   } catch (ex) {
+    await session.abortTransaction();
     res.status(500).send(ex.message);
+  } finally {
+    session.endSession();
   }
 });
 
 module.exports = router;
-
-// get, get by id, post (create), put (update),update when rental return
