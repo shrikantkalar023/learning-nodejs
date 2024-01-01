@@ -21,16 +21,18 @@ const Customer = mongoose.model(
   })
 );
 
-// express validation
+// joi validation for post & put requests
 const validateCustomer = (customer) => {
   const schema = Joi.object({
     name: Joi.string()
       .min(4)
       .max(50)
+      .required()
       .messages(generateErrorMessages("name", 4, 50)),
     phone: Joi.string()
       .min(4)
       .max(50)
+      .required()
       .messages(generateErrorMessages("phone", 4, 50)),
     // isGold: Joi.boolean(),
   });
