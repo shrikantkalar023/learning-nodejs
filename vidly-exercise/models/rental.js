@@ -37,6 +37,7 @@ const Rental = mongoose.model(
       }),
       required: true,
     },
+    returned: { type: Boolean, default: false },
     dateOut: { type: Date, required: true, default: Date.now },
     dateReturned: { type: Date },
     rentalFee: { type: Number, min: 0 },
