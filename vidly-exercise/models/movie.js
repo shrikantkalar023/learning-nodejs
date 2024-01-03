@@ -27,7 +27,7 @@ const validateMovie = (movie) => {
       .max(50)
       .required()
       .messages(generateErrorMessages("title", 4, 50)),
-    genreId: Joi.string().required(),
+    genreId: Joi.objectId().required(),
     numberInStock: Joi.number()
       .min(0)
       .max(255)

@@ -14,6 +14,9 @@ dependencies:
   joi:
     specifier: ^17.11.0
     version: 17.11.0
+  joi-objectid:
+    specifier: ^4.0.2
+    version: 4.0.2
   mongoose:
     specifier: ^8.0.3
     version: 8.0.3
@@ -336,6 +339,10 @@ packages:
   /ipaddr.js@1.9.1:
     resolution: {integrity: sha512-0KI/607xoxSToH7GjN1FfSbLoU0+btTicjsQSWQlh/hZykN8KpmMf7uYwPW3R+akZ6R/w18ZlXSHBYXiYUPO3g==}
     engines: {node: '>= 0.10'}
+    dev: false
+
+  /joi-objectid@4.0.2:
+    resolution: {integrity: sha512-OjYM+wK/JGo2bSb9ADEyzxxROJPZYtrqIwBbywpJ2a98oKlbLtWTKvpzmrnXzou69Ey9EsjHsFvZYzpjeCdKuA==}
     dev: false
 
   /joi@17.11.0:

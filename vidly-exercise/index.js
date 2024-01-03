@@ -2,6 +2,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const config = require("config");
+const Joi = require("joi");
+Joi.objectId = require("joi-objectid")(Joi);
 
 // Built-in middleware
 app.use(express.json());

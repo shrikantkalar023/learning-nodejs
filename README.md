@@ -99,3 +99,9 @@ This is the repo i created and updated while learning Node. **-Shrikant Kalar**
 46. **Embedded Documents** - most features available in Normal Documents are also available in Embedded Documents. BUT they can't be saved on their own.
 
 47. **Transactions** - Ensures all operations succeed or none of them are applied to DB. They all succeed or rollback. They are **Atomic**.
+
+48. **ObjectID** - 12 bytes, 1st 4 bytes - timestamp, next 3 bytes - machine identifier, next 2 bytes - process identifier, next 3 bytes - counter.
+
+49. **mongoose.isObjectIdOrHexString()** - check if a string is a valid ObjectID.
+
+50. **Joi-ObjectId** - custom joi validator for MongoDB ObjectID.
