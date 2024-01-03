@@ -21,16 +21,15 @@ router.post("/", async (req, res) => {
   const { error, value } = validateRental(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
-  const customer = await Customer.findById(value.genreId);
+  const customer = await Customer.findById(value.customerId);
   if (!customer) return res.status(404).send("Invalid Customer.");
 
-  const movie = await Movie.findById(value.genreId);
+  const movie = await Movie.findById(value.movieId);
   if (!movie) return res.status(404).send("Invalid Movie.");
 
   if (movie.numberInStock === 0)
     return res.status(400).send("Movie not in stock.");
 
-  // TODO: test this code for ATOMICITY
   const session = await Rental.startSession();
   if (!session)
     return res
@@ -54,6 +53,8 @@ router.post("/", async (req, res) => {
     });
 
     await rental.save({ session });
+
+    // throw new Error("Something failed.");
 
     movie.numberInStock--;
     await movie.save({ session });

@@ -42,6 +42,7 @@ router.put("/:id", validateObjectId, async (req, res) => {
     {
       name: value.name,
       phone: value.phone,
+      isGold: value.isGold,
     },
     { new: true } // return the updated object
   );

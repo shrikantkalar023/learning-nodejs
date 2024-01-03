@@ -34,7 +34,7 @@ const validateCustomer = (customer) => {
       .max(50)
       .required()
       .messages(generateErrorMessages("phone", 4, 50)),
-    // isGold: Joi.boolean(),
+    isGold: Joi.boolean(),
   });
 
   return schema.validate(customer);
