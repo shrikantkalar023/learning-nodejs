@@ -109,3 +109,5 @@ This is the repo i created and updated while learning Node. **-Shrikant Kalar**
 51. **Authentication** - process of determining whether a user is who they claim to be.
 
 52. **Authorization** - process of determining if a user has permission to perform a given operation.
+
+53. **joi-password-complexity** - custom joi validator for password complexity.

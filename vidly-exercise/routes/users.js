@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const _ = require("lodash");
 const { User, validateUser } = require("../models/user");
 
 router.post("/", async (req, res) => {
@@ -10,13 +11,14 @@ router.post("/", async (req, res) => {
   if (user) return res.status(400).send("User already registered.");
 
   try {
-    res.status(201).send(
-      await new User({
-        name: value.name,
-        email: value.email,
-        password: value.password,
-      }).save()
-    );
+    res
+      .status(201)
+      .send(
+        _.pick(
+          await new User(_.pick(value, ["name", "email", "password"])).save(),
+          ["_id", "name", "email"]
+        )
+      );
   } catch (ex) {
     res.status(500).send(ex.message);
   }
