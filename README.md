@@ -105,3 +105,7 @@ This is the repo i created and updated while learning Node. **-Shrikant Kalar**
 49. **mongoose.isObjectIdOrHexString()** - check if a string is a valid ObjectID.
 
 50. **Joi-ObjectId** - custom joi validator for MongoDB ObjectID.
+
+51. **Authentication** - process of determining whether a user is who they claim to be.
+
+52. **Authorization** - process of determining if a user has permission to perform a given operation.
