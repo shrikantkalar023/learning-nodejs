@@ -16,10 +16,17 @@ app.use("/api/users", require("./routes/users"));
 app.use("/api/auth", require("./routes/auth"));
 app.use("/", require("./routes/home"));
 
-const password = config.get("dbPassword");
+const dbPassword = config.get("dbPassword");
+const jwtPrivateKey = config.get("jwtPrivateKey");
+
+if (!dbPassword || !jwtPrivateKey) {
+  console.error("FATAL ERROR: dbPassword or jwtPrivateKey is not defined.");
+  process.exit(1);
+}
+
 mongoose
   .connect(
-    `mongodb+srv://Shrikant:${password}@shrikantlearnsmongodb.vd1wx.mongodb.net/vidly?retryWrites=true&w=majority`
+    `mongodb+srv://Shrikant:${dbPassword}@shrikantlearnsmongodb.vd1wx.mongodb.net/vidly?retryWrites=true&w=majority`
   )
   .then(() => {
     console.log("Connected to MongoDB...");

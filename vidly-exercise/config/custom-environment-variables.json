@@ -1,3 +1,4 @@
 {
-    "dbPassword": "mongoDB"
+    "dbPassword": "vidly_dbPassword",
+    "jwtPrivateKey": "vidly_jwtPrivateKey"
 }

@@ -41,7 +41,7 @@ const validateAuth = (req) => {
 };
 
 const generateAuthToken = (user) => {
-  const token = jwt.sign({ _id: user._id }, config.get("dbPassword"));
+  const token = jwt.sign({ _id: user._id }, config.get("jwtPrivateKey"));
   return token;
 };
 
