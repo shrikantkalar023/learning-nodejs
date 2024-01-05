@@ -111,3 +111,7 @@ This is the repo i created and updated while learning Node. **-Shrikant Kalar**
 52. **Authorization** - process of determining if a user has permission to perform a given operation.
 
 53. **joi-password-complexity** - custom joi validator for password complexity.
+
+54. **Hashing** - process of converting input of any size into a fixed-size string. Used in hash tables for fast data retrieval & in cryptography for storing passwords.
+
+55. **Salting** - adding random string to the password before hashing, making tha hash output unique. Used in conjunction with hashing to make it more secure.
