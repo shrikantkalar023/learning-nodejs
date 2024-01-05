@@ -115,3 +115,9 @@ This is the repo i created and updated while learning Node. **-Shrikant Kalar**
 54. **Hashing** - process of converting input of any size into a fixed-size string. Used in hash tables for fast data retrieval & in cryptography for storing passwords.
 
 55. **Salting** - adding random string to the password before hashing, making tha hash output unique. Used in conjunction with hashing to make it more secure.
+
+56. **bcrypt** - use for hashing & salting passwords.
+
+57. **JWT** - JSON Web Token. Long str identifying a user. Used for securely transmitting information between parties as a JSON object. Signed using a secret or public/private key pair. Has 3 parts - Header, Payload, Signature.
+
+<!-- TODO: add whole auth process note -->
