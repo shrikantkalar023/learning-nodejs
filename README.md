@@ -121,3 +121,7 @@ This is the repo i created and updated while learning Node. **-Shrikant Kalar**
 57. **JWT** - JSON Web Token. Long str identifying a user. Used for securely transmitting information between parties as a JSON object. Signed using a secret or public/private key pair. Has 3 parts - Header, Payload, Signature.
 
 <!-- TODO: add whole auth process note -->
+
+58. **Information Expert Principle** - an object that has enough info and is an expert in a given area, that obj should be responsible for making decisions and performing tasks related to that area.
+
+59. **Arrow Fns** use when creating standalone fns. **Regular Fns** use when creating methods inside objects/class.

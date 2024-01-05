@@ -2,8 +2,6 @@ const express = require("express");
 const router = express.Router();
 const _ = require("lodash");
 const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
-const config = require("config");
 const { User, validateUser } = require("../models/user");
 
 router.post("/", async (req, res) => {
@@ -17,7 +15,7 @@ router.post("/", async (req, res) => {
   user.password = await bcrypt.hash(user.password, 10);
 
   // We are assuming that the user is logged in after registration.
-  const token = jwt.sign({ _id: user._id }, config.get("jwtPrivateKey"));
+  const token = user.generateAuthToken();
 
   try {
     res
