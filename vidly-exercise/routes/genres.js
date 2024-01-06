@@ -1,6 +1,7 @@
 const express = require("express");
 const { Genre, validateGenre } = require("../models/genre");
-const { validateObjectId } = require("../utils/validateObjectId");
+const validateObjectId = require("../middleware/validateObjectId");
+const auth = require("../middleware/auth");
 
 const router = express.Router();
 
@@ -16,7 +17,7 @@ router.get("/:id", validateObjectId, async (req, res) => {
   } else res.send(genre);
 });
 
-router.post("/", async (req, res) => {
+router.post("/", auth, async (req, res) => {
   const { error, value } = validateGenre(req.body.name);
   if (error) return res.status(400).send(error.details[0].message);
 
@@ -31,7 +32,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.put("/:id", validateObjectId, async (req, res) => {
+router.put("/:id", auth, validateObjectId, async (req, res) => {
   const { error, value } = validateGenre(req.body.name);
   if (error) return res.status(400).send(error.details[0].message);
 
@@ -48,7 +49,7 @@ router.put("/:id", validateObjectId, async (req, res) => {
   } else res.send(genre);
 });
 
-router.delete("/:id", validateObjectId, async (req, res) => {
+router.delete("/:id", auth, validateObjectId, async (req, res) => {
   const genre = await Genre.findByIdAndDelete(req.params.id);
 
   if (!genre) {

@@ -5,8 +5,6 @@ const bcrypt = require("bcrypt");
 const { User } = require("../models/user");
 const { generateErrorMessages } = require("../utils/generateErrorMessages");
 const Joi = require("joi");
-const jwt = require("jsonwebtoken");
-const config = require("config");
 
 router.post("/", async (req, res) => {
   const { error, value } = validateAuth(req.body);
