@@ -4,6 +4,7 @@ const { Movie, validateMovie } = require("../models/movie");
 const validateObjectId = require("../middleware/validateObjectId");
 const { Genre } = require("../models/genre");
 const auth = require("../middleware/auth");
+const admin = require("../middleware/admin");
 
 router.get("/", async (req, res) => {
   res.send(await Movie.find().sort("name"));
@@ -61,7 +62,7 @@ router.put("/:id", auth, validateObjectId, async (req, res) => {
   } else res.send(movie);
 });
 
-router.delete("/:id", auth, validateObjectId, async (req, res) => {
+router.delete("/:id", auth, validateObjectId, admin, async (req, res) => {
   const movie = await Movie.findByIdAndDelete(req.params.id);
 
   if (!movie) {

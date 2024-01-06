@@ -3,6 +3,7 @@ const router = express.Router();
 const { Customer, validateCustomer } = require("../models/customer");
 const validateObjectId = require("../middleware/validateObjectId");
 const auth = require("../middleware/auth");
+const admin = require("../middleware/admin");
 
 router.get("/", async (req, res) => {
   res.send(await Customer.find().sort("name"));
@@ -72,7 +73,7 @@ router.put("/:id", auth, validateObjectId, async (req, res) => {
   // }
 });
 
-router.delete("/:id", auth, validateObjectId, async (req, res) => {
+router.delete("/:id", auth, validateObjectId, admin, async (req, res) => {
   const customer = await Customer.findByIdAndDelete(req.params.id);
 
   if (!customer) {
