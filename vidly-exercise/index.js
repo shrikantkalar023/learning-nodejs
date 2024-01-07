@@ -3,11 +3,13 @@ const mongoose = require("mongoose");
 const app = express();
 const config = require("config");
 const Joi = require("joi");
+const error = require("./middleware/error");
 Joi.objectId = require("joi-objectid")(Joi);
 
 // Built-in middleware
 app.use(express.json());
 
+// routes
 app.use("/api/genres", require("./routes/genres"));
 app.use("/api/customers", require("./routes/customers"));
 app.use("/api/movies", require("./routes/movies"));
@@ -15,6 +17,9 @@ app.use("/api/rentals", require("./routes/rentals"));
 app.use("/api/users", require("./routes/users"));
 app.use("/api/auth", require("./routes/auth"));
 app.use("/", require("./routes/home"));
+
+// error middleware
+app.use(error);
 
 const dbPassword = config.get("dbPassword");
 const jwtPrivateKey = config.get("jwtPrivateKey");

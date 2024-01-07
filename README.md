@@ -129,3 +129,5 @@ This is the repo i created and updated while learning Node. **-Shrikant Kalar**
 60. **401** - Unauthorized status code. Send when a user tries to access a protected resource without providing a valid JWT.
 
 61. **403** - Forbidden status code. Send when a user tries to access a protected resource with a valid JWT but doesn't have permission to perform the operation.
+
+62. **Express Error Middleware** - register it **after all the other** middlewares. 1st arg is err.
