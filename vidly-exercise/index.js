@@ -1,4 +1,5 @@
 const express = require("express");
+require("express-async-errors");
 const mongoose = require("mongoose");
 const app = express();
 const config = require("config");
@@ -24,15 +25,17 @@ app.use(error);
 const dbPassword = config.get("dbPassword");
 const jwtPrivateKey = config.get("jwtPrivateKey");
 
-if (!dbPassword || !jwtPrivateKey) {
+// if (!dbPassword || !jwtPrivateKey) {
+if (!jwtPrivateKey) {
   console.error("FATAL ERROR: dbPassword or jwtPrivateKey is not defined.");
   process.exit(1);
 }
 
 mongoose
-  .connect(
-    `mongodb+srv://Shrikant:${dbPassword}@shrikantlearnsmongodb.vd1wx.mongodb.net/vidly?retryWrites=true&w=majority`
-  )
+  // .connect(
+  //   `mongodb+srv://Shrikant:${dbPassword}@shrikantlearnsmongodb.vd1wx.mongodb.net/vidly?retryWrites=true&w=majority`
+  // )
+  .connect("mongodb://localhost/vidly")
   .then(() => {
     console.log("Connected to MongoDB...");
     // Start server

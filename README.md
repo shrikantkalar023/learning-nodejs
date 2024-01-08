@@ -131,3 +131,5 @@ This is the repo i created and updated while learning Node. **-Shrikant Kalar**
 61. **403** - Forbidden status code. Send when a user tries to access a protected resource with a valid JWT but doesn't have permission to perform the operation.
 
 62. **Express Error Middleware** - register it **after all the other** middlewares. 1st arg is err.
+
+63. **express-async-errors** - use to handle async errors in express, instead of try catch block.
