@@ -5,6 +5,7 @@ const app = express();
 const config = require("config");
 const Joi = require("joi");
 const error = require("./middleware/error");
+const logger = require("./middleware/logger");
 Joi.objectId = require("joi-objectid")(Joi);
 
 // Built-in middleware
@@ -25,11 +26,19 @@ app.use(error);
 const dbPassword = config.get("dbPassword");
 const jwtPrivateKey = config.get("jwtPrivateKey");
 
+process.on("uncaughtException", (ex) => {
+  console.log("WE GOT AN UNCAUGHT EXCEPTION", ex);
+  logger.error(ex.message, ex);
+});
+
 // if (!dbPassword || !jwtPrivateKey) {
 if (!jwtPrivateKey) {
   console.error("FATAL ERROR: dbPassword or jwtPrivateKey is not defined.");
   process.exit(1);
 }
+
+// Error for testing uncaught exceptions
+throw new Error("Something failed during startup.");
 
 mongoose
   // .connect(
