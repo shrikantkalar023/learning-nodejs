@@ -1,7 +1,6 @@
 const winston = require("winston");
 require("winston-mongodb");
 const config = require("config");
-
 const dbPassword = config.get("dbPassword");
 
 module.exports = winston.createLogger({
@@ -14,8 +13,8 @@ module.exports = winston.createLogger({
 
     new winston.transports.MongoDB({
       level: "error",
-      db: "mongodb://localhost/vidly",
-      // db: `mongodb+srv://Shrikant:${dbPassword}@shrikantlearnsmongodb.vd1wx.mongodb.net/vidly?retryWrites=true&w=majority`,
+      // db: "mongodb://localhost/vidly",
+      db: `mongodb+srv://Shrikant:${dbPassword}@shrikantlearnsmongodb.vd1wx.mongodb.net/vidly?retryWrites=true&w=majority`,
       options: { useUnifiedTopology: true },
     }),
   ],
@@ -23,7 +22,6 @@ module.exports = winston.createLogger({
   exceptionHandlers: [
     new winston.transports.File({
       filename: "uncaughtExceptions.log",
-      level: "error",
     }),
   ],
 });
