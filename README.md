@@ -135,3 +135,11 @@ This is the repo i created and updated while learning Node. **-Shrikant Kalar**
 63. **express-async-errors** - use to handle async errors in express, instead of try catch block.
 
 64. **Transport** - a storage device for your logs. used in Winston Logger.
+
+65. **Uncaught Exception** - an exception that was not caught by a try catch block. Use **process.on('uncaughtException')** to handle it. Also catches **Unhandled Promise Rejection**.
+
+66. **Unhandled Promise Rejection** - a promise that was rejected but no catch block was used to handle it. Use **process.on('unhandledRejection')** to handle it.
+
+67. **Exit** the process when an uncaught exception or unhandled promise rejection occurs. **process.exit(1)**
+
+68. **Log** to both the Db & File because while DB is better for querying if the Db is down, we can still log to the file.

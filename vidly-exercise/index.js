@@ -20,16 +20,19 @@ app.use("/api/users", require("./routes/users"));
 app.use("/api/auth", require("./routes/auth"));
 app.use("/", require("./routes/home"));
 
-// error middleware
+// error middleware for request processing pipeline
 app.use(error);
 
 const dbPassword = config.get("dbPassword");
 const jwtPrivateKey = config.get("jwtPrivateKey");
 
-process.on("uncaughtException", (ex) => {
-  console.log("WE GOT AN UNCAUGHT EXCEPTION", ex);
-  logger.error(ex.message, ex);
-});
+// process.on("uncaughtException", (ex) => {
+//   console.log("WE GOT AN UNCAUGHT EXCEPTION", ex);
+// });
+
+// process.on("unhandledRejection", (ex) => {
+//   console.log("WE GOT AN UNHANDLED REJECTION", ex);
+// });
 
 // if (!dbPassword || !jwtPrivateKey) {
 if (!jwtPrivateKey) {
@@ -38,7 +41,11 @@ if (!jwtPrivateKey) {
 }
 
 // Error for testing uncaught exceptions
-throw new Error("Something failed during startup.");
+// throw new Error("Something failed during startup. uncaughtException");
+
+// Error for testing unhandled promise rejections
+const p = Promise.reject(new Error("A Promise failed miserably!"));
+p.then(() => console.log("Done"));
 
 mongoose
   // .connect(
