@@ -143,3 +143,11 @@ This is the repo i created and updated while learning Node. **-Shrikant Kalar**
 67. **Exit** the process when an uncaught exception or unhandled promise rejection occurs. **process.exit(1)**
 
 68. **Log** to both the Db & File because while DB is better for querying if the Db is down, we can still log to the file.
+
+69. **Automated Testing** - writing code to test our code automatically. Production code is tested by test code. _Benefits_ - time saving, find bugs before deployment, refactoring confidence, quality code. _Types_ - Unit, Integration, End-to-End.
+
+70. **Unit Testing** - testing individual units of an app without its _external_ dependencies. _Benefits_ - fast execution but less confidence. _Use_ - Logic
+
+71. **Integration Testing** - testing the app with its _external_ dependencies. _Benefits_ - more confidence but slower execution.
+
+72. **End-to-End Testing** - testing the app through its UI. _Benefits_ - most confidence but slowest execution. _Drawbacks_ - very brittle.
