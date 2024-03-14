@@ -151,3 +151,5 @@ This is the repo i created and updated while learning Node. **-Shrikant Kalar**
 71. **Integration Testing** - testing the app with its _external_ dependencies. _Benefits_ - more confidence but slower execution.
 
 72. **End-to-End Testing** - testing the app through its UI. _Benefits_ - most confidence but slowest execution. _Drawbacks_ - very brittle.
+
+73. **Number** of Unit tests should be _greater than or equal to_ the number of execution paths.
