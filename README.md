@@ -155,3 +155,5 @@ This is the repo i created and updated while learning Node. **-Shrikant Kalar**
 73. **Number** of Unit tests should be _greater than or equal to_ the number of execution paths.
 
 74. **Test** code should always be _clean_ and _maintainable_. It should same _high quality_ as production code.
+
+75. **Tests** should neither be _too specific_ nor _too general_.
