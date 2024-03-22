@@ -157,3 +157,5 @@ This is the repo i created and updated while learning Node. **-Shrikant Kalar**
 74. **Test** code should always be _clean_ and _maintainable_. It should same _high quality_ as production code.
 
 75. **Tests** should neither be _too specific_ nor _too general_.
+
+76. Use **Mock fns** to unit test a fn that directly or indirectly talks to an external resource.
