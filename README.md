@@ -159,3 +159,5 @@ This is the repo i created and updated while learning Node. **-Shrikant Kalar**
 75. **Tests** should neither be _too specific_ nor _too general_.
 
 76. Use **Mock fns** to unit test a fn that directly or indirectly talks to an external resource.
+
+77. With **Jest Mock fns** we can easily tell if they've been called & also check the arguments they were called with.
