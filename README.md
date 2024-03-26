@@ -161,3 +161,5 @@ This is the repo i created and updated while learning Node. **-Shrikant Kalar**
 76. Use **Mock fns** to unit test a fn that directly or indirectly talks to an external resource.
 
 77. With **Jest Mock fns** we can easily tell if they've been called & also check the arguments they were called with.
+
+78. Use **Unit Tests** to test fns with algorithms, that have 0 or minimal dependencies to external resources. Avoid too many mocks. If too many mocking then it is better to write an integration test.
